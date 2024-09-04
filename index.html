@@ -32,17 +32,115 @@
       </div>
 
       <div class="row">
-        <div class="col-12">
-Okay, let me give u any test
+        <div id="text1" class="col-12 mt-3">
+            Okay, let me give u any test 
+            <br>
+            <span style="font-size: 10px;">FYI: Don't restart until all question has done, you only has 3 chance</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-danger" id="min0-heart" style="display: none;">
+          <i class="fa-solid fa-heart fa-beat"></i>
+          <i class="fa-solid fa-heart fa-beat"></i>
+          <i class="fa-solid fa-heart fa-beat"></i>
+        </div>
+        <div class="col-12 text-danger" id="min1-heart" style="display: none;">
+          <i class="fa-solid fa-heart fa-beat"></i>
+          <i class="fa-solid fa-heart fa-beat"></i>
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="col-12 text-danger" id="min2-heart">
+          <i class="fa-solid fa-heart fa-beat"></i>
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-heart"></i>
+        </div>
+      </div>
+
+      <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+        <div class="progress-bar" style="width: 80%"></div>
+      </div>
+
+      <div class="row">
+        <div id="quest1" class="col-12 mt-3" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label">When is your birthday?:</label>
+            <input type="date" id="answer1" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center" id="loc-btn1" style="display: none;">
+          <button id="btn-q1" class="btn btn-primary"><i class="fa-solid fa-fingerprint"></i> Validity</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="quest2" class="col-12 mt-3" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label">What is the most expensive thing you have ever bought :</label>
+            <input type="text" id="answer2" class="form-control" placeholder="Your answer">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center" id="loc-btn2" style="display: none;">
+          <button id="btn-q2" class="btn btn-primary"><i class="fa-solid fa-fingerprint"></i> Validity</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="quest3" class="col-12 mt-3" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label">What drink does Adzka like most? :</label>
+            <input type="text" id="answer3" class="form-control" placeholder="Your answer">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center" id="loc-btn3" style="display: none;">
+          <button id="btn-q3" class="btn btn-primary"><i class="fa-solid fa-fingerprint"></i> Validity</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="quest4" class="col-12 mt-3" style="display: none;">
+          <div class="mb-3">
+            <label class="form-label">What is the username of adzka's second ig account ? :</label>
+            <input type="text" id="answer4" class="form-control" placeholder="Your answer">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center" id="loc-btn4" style="display: none;">
+          <button id="btn-q4" class="btn btn-primary"><i class="fa-solid fa-fingerprint"></i> Validity</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="quest5" class="col-12 mt-3">
+          <div class="mb-3">
+            <label class="form-label">What is your mother name (nick name)</label>
+            <input type="text" id="answer5" class="form-control" placeholder="Your answer">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center" id="loc-btn5" style="display: none;">
+          <button id="btn-q5" class="btn btn-primary"><i class="fa-solid fa-fingerprint"></i> Validity</button>
         </div>
       </div>
       
-      
-      <!-- <div class="mb-3">
-        <label for="nameInput" class="form-label">Question:</label>
-        <input type="text" id="nameInput" class="form-control" placeholder="Your Name">
+      <div class="row">
+        <div class="col-12 text-center">
+          <span class="text-success">Ok, good <i class="fa-regular fa-face-kiss-wink-heart"></i></span>
+        </div>
       </div>
-      <button id="saveNameBtn" class="btn btn-primary">Save Name</button> -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <span class="text-danger">Please wait to next question <i class="fa-solid fa-person-walking-with-cane fa-bounce"></i></span>
+        </div>
+      </div>
+      
 
     </div>
 
@@ -122,7 +220,8 @@ Okay, let me give u any test
 
       // function button (i'm the right person!)
       $('#right-person').click(function(){
-        
+        $('#right-person').prop('disabled',true);
+        $('#question1').show();
       })
     </script>
 

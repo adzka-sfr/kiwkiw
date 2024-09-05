@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container mt-3">
-      <h1 id="greeting">Hello, who r u bitch?! <i class="fa-regular fa-face-angry"></i></h1>
+      <h1 id="greeting">Hello, who are u?! <i class="fa-regular fa-face-angry"></i></h1>
 
       <div class="row">
         <div class="col-12 mb-3">
@@ -117,7 +117,7 @@
       </div>
 
       <div class="row">
-        <div id="quest5" class="col-12 mt-3">
+        <div id="quest5" class="col-12 mt-3" style="display: none;">
           <div class="mb-3">
             <label class="form-label">What is your mother name (nick name)</label>
             <input type="text" id="answer5" class="form-control" placeholder="Your answer">
@@ -131,13 +131,15 @@
       </div>
       
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" id="ok-good">
           <span class="text-success">Ok, good <i class="fa-regular fa-face-kiss-wink-heart"></i></span>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" id="please-wait">
           <span class="text-danger">Please wait to next question <i class="fa-solid fa-person-walking-with-cane fa-bounce"></i></span>
+          <br>
+          <span id="countdown"></span>
         </div>
       </div>
       
@@ -146,29 +148,23 @@
 
     <!-- <button id="resetBtn" class="btn btn-danger">Reset Name</button> -->
 
-    <script src="reset.js"></script>
+    <script src="j_cookies.js"></script>
+    <script src="k_reset.js"></script>
+    <script src="l_question.js"></script>
+    <script src="m_countdown.js"></script>
     <script>
+
+      // Update greeting on page load
+      $(document).ready(function() {
+        updateGreeting();
+      });
+
       // Attach reset function to the button
       $("#resetBtn").click(function() {
         resetUsernameCookie();
       });
 
-      // Function to set a cookie
-      function setCookie(name, value, hours) {
-        let expires = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
-        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-      }
-
-      // Function to get a cookie by name
-      function getCookie(name) {
-        let cookies = document.cookie.split('; ').reduce((acc, cookie) => {
-          let [key, val] = cookie.split('=');
-          acc[key] = val;
-          return acc;
-        }, {});
-        return cookies[name];
-      }
-
+      // penggunaan cookie
       // Update greeting based on the cookie
       function updateGreeting() {
         let userName = getCookie("username");
@@ -188,9 +184,8 @@
         }
       });
 
-      // Update greeting on page load
-      $(document).ready(function() {
-        updateGreeting();
+      $('#right-person').on('click', function() {
+          startCountdown(60, $('#countdown')); // Start a 10-second countdown
       });
 
     </script>
@@ -221,7 +216,8 @@
       // function button (i'm the right person!)
       $('#right-person').click(function(){
         $('#right-person').prop('disabled',true);
-        $('#question1').show();
+        // $('#question1').show();
+
       })
     </script>
 
